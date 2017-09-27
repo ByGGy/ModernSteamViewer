@@ -7,7 +7,10 @@ New version of the **SteamViewer** repository, in order to practice after the **
 ## Getting Started
 
 - [x] Install [Nodejs](https://nodejs.org)
-    > used v7.3.0 64bits
+    > v7.3.0 64bits
 - [x] Install [Visual Studio Code](https://code.visualstudio.com/)
     > v1.16.1 64bits
-- [] Install and Use [Yarn](https://yarnpkg.com/en/docs/getting-started) to manage the packages
+- [x] Install [Yarn](https://yarnpkg.com/en/docs/getting-started) to manage the packages
+    > v1.1.0
+- [x] Start the project with [electron-forge](https://github.com/electron-userland/electron-forge)
+    > electron-forge init ModernSteamViewer --template=react
