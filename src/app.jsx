@@ -6,6 +6,6 @@ export default class App extends React.Component {
       <div>
         <h2>Welcome to React!</h2>
       </div>
-      );
+    );
   }
 }
