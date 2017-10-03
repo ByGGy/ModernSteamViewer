@@ -1,36 +1,38 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-import { AddToBookmark } from '../reducers/bookmarkReducer'
-
 import steamAPI from './steamAPI'
+import { FetchAppsSuccess, FetchAppsFailure, FetchNewsSuccess, FetchNewsFailure } from '../reducers/steamReducer'
 
 const FETCH_APPS_REQUEST = 'modernSteamViewer/Steam/FETCH_APPS_REQUEST'
-const FETCH_APPS_SUCCESS = 'modernSteamViewer/Steam/FETCH_APPS_SUCCESS'
-const FETCH_APPS_FAILURE = 'modernSteamViewer/Steam/FETCH_APPS_FAILURE'
+const FETCH_NEWS_REQUEST = 'modernSteamViewer/Steam/FETCH_NEWS_REQUEST'
 
-function* fetchApps(action) {
+function* fetchApps() {
   try {
     const data = yield call(steamAPI.FetchApps)
-    console.log(data)
     yield put(FetchAppsSuccess(data))
   } catch (error) {
-    console.log(error)
     yield put(FetchAppsFailure(error))
+  }
+}
+
+function* fetchNews(action) {
+  try {
+    const data = yield call(steamAPI.FetchNews, action.payload)
+    yield put(FetchNewsSuccess(data))
+  } catch (error) {
+    yield put(FetchNewsFailure(error))
   }
 }
 
 export default function* steamSaga() {
   yield takeLatest(FETCH_APPS_REQUEST, fetchApps)
-}
-
-function FetchAppsSuccess(data) {
-  return { type: FETCH_APPS_SUCCESS, payload: data }
-}
-
-function FetchAppsFailure(error) {
-  return { type: FETCH_APPS_FAILURE, payload: error }
+  yield takeLatest(FETCH_NEWS_REQUEST, fetchNews)  
 }
 
 export function FetchAppsRequest() {
   return { type: FETCH_APPS_REQUEST }
+}
+
+export function FetchNewsRequest(appid) {
+  return { type: FETCH_NEWS_REQUEST, payload: appid }
 }
