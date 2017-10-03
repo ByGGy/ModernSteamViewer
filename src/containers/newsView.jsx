@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { Card, CardTitle, CardText } from 'material-ui/Card'
 import NewsCard from '../components/newsCard'
 
 class newsView extends Component {
@@ -8,11 +9,16 @@ class newsView extends Component {
     const { news } = this.props
 
     return (
-      <div>
+      <Card>
+        <CardTitle
+          title='Latest App News'
+        />
+        <CardText>
         {
-          news.map((item) => <NewsCard post={item} />)
+          news.map((item) => <NewsCard key={item.gid} post={item} />)
         }
-      </div>
+        </CardText>
+      </Card>
     )
   }
 }

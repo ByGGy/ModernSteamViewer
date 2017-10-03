@@ -14,9 +14,10 @@ New version of the **SteamViewer** repository, in order to practice after the **
     > v1.1.0
 - [x] Start the project with [electron-forge](https://github.com/electron-userland/electron-forge)
     > electron-forge init ModernSteamViewer --template=react
+
+## Coding the app
+
 - [x] Use [Redux](http://redux.js.org/) and React-Redux in a simple use case
 - [x] Use [Redux-Saga](https://github.com/redux-saga/redux-saga) to fetch some data from an url
-
-## Implementing Features
-
 - [x] Add the data from the steam API to the store and use it to grab the latest news of a selected app
+- [x] use [materialUI](http://www.material-ui.com/#/) to improve the look
