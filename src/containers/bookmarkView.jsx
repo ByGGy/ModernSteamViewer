@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { AddToBookmark } from '../reducer'
+import { AddToBookmark } from '../reducers/bookmarkReducer'
 
 class BookmarkView extends Component {
   constructor(props) {

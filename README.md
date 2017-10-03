@@ -15,3 +15,4 @@ New version of the **SteamViewer** repository, in order to practice after the **
 - [x] Start the project with [electron-forge](https://github.com/electron-userland/electron-forge)
     > electron-forge init ModernSteamViewer --template=react
 - [x] Use [Redux](http://redux.js.org/) and React-Redux in a simple use case
+- [x] Use [Redux-Saga](https://github.com/redux-saga/redux-saga) to fetch some data from an url

@@ -2,8 +2,8 @@ const BOOKMARK = 'modernSteamViewer/Test/BOOKMARK'
 
 export default function reduceBookmark(state = { bookmarks: [] }, action) {
     switch (action.type) {
-    case BOOKMARK:
-        return { bookmarks: [...state.bookmarks, action.value] }
+        case BOOKMARK:
+            return { bookmarks: [...state.bookmarks, action.payload] }
 
         default :
             return state
@@ -11,5 +11,5 @@ export default function reduceBookmark(state = { bookmarks: [] }, action) {
 }
 
 export function AddToBookmark(name) {
-  return { type: BOOKMARK, value: name }
+  return { type: BOOKMARK, payload: name }
 }
