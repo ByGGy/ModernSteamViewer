@@ -20,7 +20,13 @@ class steamView extends Component {
   }
 
   handleAppSelection(event) {
-    this.props.dispatch(FetchNewsRequest(event.appid))
+    if (event.appid) {
+      this.props.dispatch(FetchNewsRequest(event.appid))
+    } else {
+      const selectedApp = this.props.apps.find((app) => app.name === event)
+      if (selectedApp && selectedApp.appid)
+        this.props.dispatch(FetchNewsRequest(selectedApp.appid))
+    }
   }
 
   render() {
