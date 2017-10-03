@@ -1,11 +1,11 @@
 const BOOKMARK = 'modernSteamViewer/Test/BOOKMARK'
 
-export default function reduceBookmark(state = { bookmarks: [] }, action) {
+export default function reduceBookmark(state = [], action) {
     switch (action.type) {
         case BOOKMARK:
-            return { bookmarks: [...state.bookmarks, action.payload] }
+            return [...state, action.payload]
 
-        default :
+        default:
             return state
     }
 }

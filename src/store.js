@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import reduceBookmark from './reducers/bookmarkReducer'
+import coreReducer from './reducers/reducer'
 import steamSaga from './sagas/steamSaga'
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(reduceBookmark, applyMiddleware(sagaMiddleware))
+const store = createStore(coreReducer, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(steamSaga)
 
 // store.subscribe(() =>

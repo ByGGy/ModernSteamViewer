@@ -30,9 +30,7 @@ class BookmarkView extends Component {
         </div>
         <div>
         {
-          bookmarks.map((bookmark) => (
-            <p>{bookmark}</p>
-          ))
+          bookmarks.map((bookmark) => <p>{bookmark}</p>)
         }
         </div>
       </div>
