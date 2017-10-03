@@ -18,7 +18,7 @@ export default function reduceSteam(state = { }, action) {
 
     case FETCH_NEWS_FAILURE:
       console.log(action.payload)
-      return state
+      return { ...state, news: [] }
 
     default:
       return state
