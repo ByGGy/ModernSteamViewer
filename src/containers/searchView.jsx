@@ -62,6 +62,10 @@ class SearchView extends Component {
     this.handleAppSelection = this.handleAppSelection.bind(this)
   }
 
+  componentDidMount() {
+    this.props.dispatch(FetchAppsRequest())
+  }
+
   handleFetchRequest(event) {
     this.props.dispatch(FetchAppsRequest())
   }
