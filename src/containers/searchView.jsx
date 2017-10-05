@@ -12,7 +12,6 @@ import SteamIcon from '../icons/steamIcon'
 import { FetchAppsRequest, FetchNewsRequest } from '../sagas/steamSaga'
 
 const Layout = styled.div`
-  padding: 10px 10px 10px 10px;
   display: grid;
   grid-template-columns: 200px 40px 1fr;
   grid-template-rows: 1fr auto;

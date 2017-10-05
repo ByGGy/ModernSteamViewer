@@ -12,9 +12,9 @@ import BookmarkView from './containers/bookmarkView'
 
 const Layout = styled.div`
   background-color: #262626;
-  padding: 10px 10px 10px 10px;
-  width: 100%;
-  height: 100%;
+  margin: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
   display: grid;
   grid-template-columns: 20% 1fr;
   grid-template-rows: auto 1fr;
