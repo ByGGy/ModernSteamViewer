@@ -3,22 +3,20 @@ import { connect } from 'react-redux'
 
 import { Card } from 'material-ui/Card'
 import Subheader from 'material-ui/Subheader'
-import IconButton from 'material-ui/IconButton'
 import AutoComplete from 'material-ui/AutoComplete'
 
 import styled from 'styled-components'
 
 import SteamIcon from '../icons/steamIcon'
-import RefreshIcon from '../icons/refreshIcon'
 
 import { FetchAppsRequest, FetchNewsRequest } from '../sagas/steamSaga'
 
 const Layout = styled.div`
   padding: 10px 10px 10px 10px;
   display: grid;
-  grid-template-columns: 20% auto 40px 1fr;
-  grid-template-rows: 60% 40%;
-  grid-gap: 4px;
+  grid-template-columns: 200px 40px 1fr;
+  grid-template-rows: 1fr auto;
+  grid-gap: 2px;
   justify-items: stretch;
 `
 
@@ -35,38 +33,28 @@ const StatusArea = styled.div`
 `
 
 const NewsArea = styled.div`
-  grid-row: 1 / span 2;
-  grid-column: 2;
-  justify-self: start;
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: end;
 `
 
 const NewsLabel = styled.h3`
   color: #439EBF;
 `
 
-const FetchArea = styled.div`
-  grid-row: 2;
-  grid-column: 2;
-`
-
 const SearchArea = styled.div`
   grid-row: 1 / span 2;
-  grid-column: 4;
+  grid-column: 3;
 `
 
 class SearchView extends Component {
   constructor(props) {
     super(props)
 
-    this.handleFetchRequest = this.handleFetchRequest.bind(this)
     this.handleAppSelection = this.handleAppSelection.bind(this)
   }
 
   componentDidMount() {
-    this.props.dispatch(FetchAppsRequest())
-  }
-
-  handleFetchRequest(event) {
     this.props.dispatch(FetchAppsRequest())
   }
 
@@ -95,16 +83,11 @@ class SearchView extends Component {
           <NewsArea>
             <NewsLabel>NEWS</NewsLabel>
           </NewsArea>
-          <FetchArea>
-            <IconButton tooltip="Fetch data from Steam API" onClick={this.handleFetchRequest}>
-              <RefreshIcon />
-            </IconButton>
-          </FetchArea>
           <SearchArea>
             <AutoComplete
               fullWidth
               floatingLabelText="Search"
-              hintText="Type here to search"
+              hintText="Type here the app name"
               filter={AutoComplete.caseInsensitiveFilter}
               dataSource={this.props.apps}
               dataSourceConfig={ { text: 'name', value: 'appid' } }
