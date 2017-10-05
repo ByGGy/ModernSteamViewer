@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import styled from 'styled-components'
+
 import { Card, CardTitle, CardText } from 'material-ui/Card'
 import NewsCard from '../components/newsCard'
 
 class NewsView extends Component {
   render() {
-    const { news } = this.props
+    const { app, news } = this.props
 
     return (
       <Card>
         <CardTitle
-          title='Latest App News'
+          title={app && app.name}
         />
         <CardText>
         {
@@ -23,6 +25,6 @@ class NewsView extends Component {
   }
 }
 
-const mapStateToProps = ({ steam: { news = [] } }) => ({ news })
+const mapStateToProps = ({ steam: { appSelected: app, news = [] } }) => ({ app, news })
 
 export default connect(mapStateToProps)(NewsView)

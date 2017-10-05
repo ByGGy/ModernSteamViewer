@@ -9,7 +9,7 @@ const FETCH_NEWS_REQUEST = 'modernSteamViewer/Steam/FETCH_NEWS_REQUEST'
 function* fetchApps() {
   try {
     const data = yield call(steamAPI.FetchApps)
-    yield put(FetchAppsSuccess(data))
+    yield put(FetchAppsSuccess({ apps: data.applist.apps }))
   } catch (error) {
     yield put(FetchAppsFailure(error))
   }
@@ -17,8 +17,8 @@ function* fetchApps() {
 
 function* fetchNews(action) {
   try {
-    const data = yield call(steamAPI.FetchNews, action.payload)
-    yield put(FetchNewsSuccess(data))
+    const data = yield call(steamAPI.FetchNews, action.payload.appid)
+    yield put(FetchNewsSuccess({ appSelected: action.payload, news: data.appnews.newsitems }))
   } catch (error) {
     yield put(FetchNewsFailure(error))
   }
@@ -33,6 +33,6 @@ export function FetchAppsRequest() {
   return { type: FETCH_APPS_REQUEST }
 }
 
-export function FetchNewsRequest(appid) {
-  return { type: FETCH_NEWS_REQUEST, payload: appid }
+export function FetchNewsRequest({ name, appid }) {
+  return { type: FETCH_NEWS_REQUEST, payload: { name, appid } }
 }

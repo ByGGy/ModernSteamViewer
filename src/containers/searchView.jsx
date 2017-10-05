@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Card } from 'material-ui/Card'
+import Paper from 'material-ui/Paper'
 import Subheader from 'material-ui/Subheader'
 import AutoComplete from 'material-ui/AutoComplete'
 
@@ -60,11 +60,13 @@ class SearchView extends Component {
 
   handleAppSelection(event) {
     if (event.appid) {
-      this.props.dispatch(FetchNewsRequest(event.appid))
+      const selectedApp = this.props.apps.find((app) => app.appid === event.appid)
+      if (selectedApp)
+        this.props.dispatch(FetchNewsRequest(selectedApp))
     } else {
       const selectedApp = this.props.apps.find((app) => app.name === event)
-      if (selectedApp && selectedApp.appid)
-        this.props.dispatch(FetchNewsRequest(selectedApp.appid))
+      if (selectedApp)
+        this.props.dispatch(FetchNewsRequest(selectedApp))
     }
   }
 
@@ -72,7 +74,7 @@ class SearchView extends Component {
     const appQty = this.props.apps.length
 
     return (
-      <Card>
+      <Paper>
         <Layout>
           <SteamIconArea>
             <SteamIcon style={{width: '100%', height: '100%'}} />
@@ -96,7 +98,7 @@ class SearchView extends Component {
             />
           </SearchArea>
         </Layout>
-      </Card>
+      </Paper>
     )
   }
 }

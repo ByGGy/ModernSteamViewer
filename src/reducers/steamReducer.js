@@ -7,14 +7,14 @@ const FETCH_NEWS_FAILURE = 'modernSteamViewer/Steam/FETCH_NEWS_FAILURE'
 export default function reduceSteam(state = { }, action) {
   switch (action.type) {
     case FETCH_APPS_SUCCESS:
-      return { ...state, apps: action.payload.applist.apps }
+      return { ...state, apps: action.payload.apps }
 
     case FETCH_APPS_FAILURE:
       console.log(action.payload)
       return state
 
     case FETCH_NEWS_SUCCESS:
-      return { ...state, news: action.payload.appnews.newsitems }
+      return { ...state, appSelected: action.payload.appSelected, news: action.payload.news }
 
     case FETCH_NEWS_FAILURE:
       console.log(action.payload)
