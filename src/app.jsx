@@ -6,7 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 
 import styled from 'styled-components'
 
-import SteamView from './containers/steamView'
+import SearchView from './containers/searchView'
 import NewsView from './containers/newsView'
 import BookmarkView from './containers/bookmarkView'
 
@@ -41,7 +41,7 @@ export default class App extends React.Component {
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Layout>
           <SearchArea>
-            <SteamView />
+            <SearchView />
           </SearchArea>
           <BookmarkArea>
             {/* <BookmarkView /> */}

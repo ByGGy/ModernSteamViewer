@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Card, CardTitle, CardText } from 'material-ui/Card'
 import NewsCard from '../components/newsCard'
 
-class newsView extends Component {
+class NewsView extends Component {
   render() {
     const { news } = this.props
 
@@ -25,4 +25,4 @@ class newsView extends Component {
 
 const mapStateToProps = ({ steam: { news = [] } }) => ({ news })
 
-export default connect(mapStateToProps)(newsView)
+export default connect(mapStateToProps)(NewsView)

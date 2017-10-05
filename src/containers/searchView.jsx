@@ -54,7 +54,7 @@ const SearchArea = styled.div`
   grid-column: 4;
 `
 
-class steamView extends Component {
+class SearchView extends Component {
   constructor(props) {
     super(props)
 
@@ -116,4 +116,4 @@ class steamView extends Component {
 
 const mapStateToProps = ({ steam: { apps = [] } }) => ({ apps })
 
-export default connect(mapStateToProps)(steamView)
+export default connect(mapStateToProps)(SearchView)
