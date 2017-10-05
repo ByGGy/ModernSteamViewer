@@ -13,9 +13,11 @@ import BookmarkView from './containers/bookmarkView'
 const Layout = styled.div`
   background-color: #262626;
   padding: 10px 10px 10px 10px;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 20% 1fr;
-  grid-template-rows: 20% 1fr;
+  grid-template-rows: auto 1fr;
   grid-gap: 4px;
   justify-items: stretch;
 `
@@ -44,7 +46,7 @@ export default class App extends React.Component {
             <SearchView />
           </SearchArea>
           <BookmarkArea>
-            {/* <BookmarkView /> */}
+
           </BookmarkArea>
           <NewsArea>
             <NewsView />

@@ -11,7 +11,7 @@ class NewsView extends Component {
     const { app, news } = this.props
 
     return (
-      <Card>
+      <Card style={{width:'100%', height:'100%'}}>
         <CardTitle
           title={app && app.name}
         />
