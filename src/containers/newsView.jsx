@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 
-import { Card, CardTitle, CardText } from 'material-ui/Card'
+import Paper from 'material-ui/Paper'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 import NewsCard from '../components/newsCard'
 
 class NewsView extends Component {
@@ -11,16 +12,18 @@ class NewsView extends Component {
     const { app, news } = this.props
 
     return (
-      <Card style={{width:'100%', height:'100%', overflow:'auto'}}>
-        <CardTitle
-          title={app && app.name}
-        />
-        <CardText>
-        {
-          news.map((item) => <NewsCard key={item.gid} post={item} />)
-        }
-        </CardText>
-      </Card>
+      <Paper style={{width:'100%', height:'100%'}}>
+        <Toolbar style={{background:'#439EBF'}}>
+          <ToolbarGroup>
+            <ToolbarTitle style={{color:'white'}} text={app && app.name} />
+          </ToolbarGroup>
+        </Toolbar>
+        <Paper style={{width:'100%', height:'100%', overflow:'auto'}}>
+          {
+            news.map((item) => <NewsCard key={item.gid} post={item} />)
+          }
+        </Paper>
+      </Paper>
     )
   }
 }
