@@ -25,16 +25,19 @@ const Layout = styled.div`
 const SearchArea = styled.div`
   grid-row: 1;
   grid-column: 1 / span 2;
+  overflow: hidden;
 `
 
 const BookmarkArea = styled.div`
   grid-row: 2;
   grid-column: 1;
+  overflow: hidden;
 `
 
 const NewsArea = styled.div`
   grid-row: 2;
   grid-column: 2;
+  overflow: hidden;
 `
 
 export default class App extends React.Component {
