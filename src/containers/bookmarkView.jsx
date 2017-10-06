@@ -1,43 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { AddToBookmark } from '../reducers/bookmarkReducer'
+import RaisedButton from 'material-ui/RaisedButton'
+
+import { FetchNewsRequest } from '../sagas/steamSaga'
 
 class BookmarkView extends Component {
   constructor(props) {
     super(props)
 
-    this.handleTextChange = this.handleTextChange.bind(this)
-    this.handleAddRequest = this.handleAddRequest.bind(this)
+    this.handleSelection = this.handleSelection.bind(this)
   }
 
-  handleTextChange(event) {
-    this.text = event.target.value
-  }
-
-  handleAddRequest(event) {
-    this.props.dispatch(AddToBookmark(this.text))
+  handleSelection(event) {
+    const { app } = this.props
+    this.props.dispatch(FetchNewsRequest(app))
   }
 
   render() {
-    const { bookmarks } = this.props
+    const { app } = this.props
 
     return (
-      <div>
-        <div>
-          <input type="text" name="name" onChange={this.handleTextChange} />
-          <input type="button" value="ADD" onClick={this.handleAddRequest} />
-        </div>
-        <div>
-        {
-          bookmarks.map((bookmark) => <p>{bookmark}</p>)
-        }
-        </div>
-      </div>
+      <RaisedButton
+        style={{margin: '4px'}}
+        buttonStyle={{textAlign: 'left', overflow: 'hidden'}}
+        fullWidth
+        label={app.name}
+        onClick={this.handleSelection}
+      />
     )
   }
 }
 
-const mapStateToProps = ({ bookmarks }) => ({ bookmarks })
-
-export default connect(mapStateToProps)(BookmarkView)
+export default connect()(BookmarkView)

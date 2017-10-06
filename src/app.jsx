@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 import SearchView from './containers/searchView'
 import NewsView from './containers/newsView'
-import BookmarkView from './containers/bookmarkView'
+import BookmarksView from './containers/bookmarksView'
 
 const Layout = styled.div`
   background-color: #262626;
@@ -28,7 +28,7 @@ const SearchArea = styled.div`
   overflow: hidden;
 `
 
-const BookmarkArea = styled.div`
+const BookmarksArea = styled.div`
   grid-row: 2;
   grid-column: 1;
   overflow: hidden;
@@ -48,9 +48,9 @@ export default class App extends React.Component {
           <SearchArea>
             <SearchView />
           </SearchArea>
-          <BookmarkArea>
-
-          </BookmarkArea>
+          <BookmarksArea>
+            <BookmarksView />
+          </BookmarksArea>
           <NewsArea>
             <NewsView />
           </NewsArea>
